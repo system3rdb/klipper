@@ -1,18 +1,8 @@
 # Features
 
-Klipper has several compelling features:
+Klipper 에는 다음과 같이 몇가지 매력적인 기능이 있습니다:
 
-* High precision stepper movement. Klipper utilizes an application
-  processor (such as a low-cost Raspberry Pi) when calculating printer
-  movements. The application processor determines when to step each
-  stepper motor, it compresses those events, transmits them to the
-  micro-controller, and then the micro-controller executes each event
-  at the requested time. Each stepper event is scheduled with a
-  precision of 25 micro-seconds or better. The software does not use
-  kinematic estimations (such as the Bresenham algorithm) - instead it
-  calculates precise step times based on the physics of acceleration
-  and the physics of the machine kinematics. More precise stepper
-  movement translates to quieter and more stable printer operation.
+* 고정밀 스테퍼 동작. Klipper 는 3D 프린터의 움직임을 계산할 때 라즈베리파이 같은 저렴한 애플리케이션 프로세서를 활용합니다. 애플리케이션 프로세서는 각 스테퍼 모터를 언제 움직여야 하는지 결정하고 해당 이벤트를 압축하여 마이크로 컨트롤러에 전송한 다음 마이크로 컨트롤러가 요청된 시간에 각 이벤트를 실행합니다. 각 스테퍼 이벤트는 25 마이크로초 이상의 정밀도로 스케줄링 됩니다. 소프트웨어는 운동학적 추정(예: Bresenham 알고리즘)을 사용하지 않습니다. 대신 가속 물리학 및 기계 운동학 물리학을 기반으로 정확한 단계 시간을 계산합니다. 더 정밀한 스테퍼 움직임은 더 조용하고 안정적인 프린터 작동으로 이어집니다.
 
 * Best in class performance. Klipper is able to achieve high stepping
   rates on both new and old micro-controllers. Even old 8bit
