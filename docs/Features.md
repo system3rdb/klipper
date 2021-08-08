@@ -2,67 +2,27 @@
 
 Klipper 에는 다음과 같이 몇가지 매력적인 기능이 있습니다:
 
-* 고정밀 스테퍼 동작. Klipper 는 3D 프린터의 움직임을 계산할 때 라즈베리파이 같은 저렴한 애플리케이션 프로세서를 활용합니다. 애플리케이션 프로세서는 각 스테퍼 모터를 언제 움직여야 하는지 결정하고 해당 이벤트를 압축하여 마이크로 컨트롤러에 전송한 다음 마이크로 컨트롤러가 요청된 시간에 각 이벤트를 실행합니다. 각 스테퍼 이벤트는 25 마이크로초 이상의 정밀도로 스케줄링 됩니다. 소프트웨어는 운동학적 추정(예: Bresenham 알고리즘)을 사용하지 않습니다. 대신 가속 물리학 및 기계 운동학 물리학을 기반으로 정확한 단계 시간을 계산합니다. 더 정밀한 스테퍼 움직임은 더 조용하고 안정적인 프린터 작동으로 이어집니다.
+* <b>고정밀 스테퍼 동작.</b> Klipper 는 3D 프린터의 움직임을 계산할 때 라즈베리파이 같은 저렴한 애플리케이션 프로세서를 활용합니다. 애플리케이션 프로세서는 각 스테퍼 모터를 언제 움직여야 하는지 결정하고 해당 이벤트를 압축하여 마이크로 컨트롤러에 전송한 다음 마이크로 컨트롤러가 요청된 시간에 각 이벤트를 실행합니다. 각 스테퍼 이벤트는 25 마이크로초 이상의 정밀도로 스케줄링 됩니다. 소프트웨어는 운동학적 추정(예: Bresenham 알고리즘)을 사용하지 않습니다. 대신 가속 물리학 및 기계 운동학 물리학을 기반으로 정확한 단계 시간을 계산합니다. 더 정밀한 스테퍼 움직임은 더 조용하고 안정적인 프린터 작동으로 이어집니다.
 
-* Best in class performance. Klipper is able to achieve high stepping
-  rates on both new and old micro-controllers. Even old 8bit
-  micro-controllers can obtain rates over 175K steps per second. On
-  more recent micro-controllers, rates over 500K steps per second are
-  possible. Higher stepper rates enable higher print velocities. The
-  stepper event timing remains precise even at high speeds which
-  improves overall stability.
+* <b>동급 최고의 성능.</b> Klipper는 신규 및 기존 마이크로 컨트롤러 모두에서 높은 스테핑 속도를 달성할 수 있습니다. 심지어 오래된 8비트 마이크로 컨트롤러도 초당 175K 단계 이상의 속도를 얻을 수 있습니다. 최신 마이크로 컨트롤러에서는 초당 500K 단계 이상의 속도가 가능합니다. 더 빠른 스테퍼 속도는 더 빠른 인쇄 속도를 가능하게 합니다. 스테퍼 이벤트 타이밍은 고속에서도 정밀하게 유지되어 전반적인 안정성을 향상시킵니다.
 
-* Klipper supports printers with multiple micro-controllers. For
-  example, one micro-controller could be used to control an extruder,
-  while another controls the printer's heaters, while a third controls
-  the rest of the printer. The Klipper host software implements clock
-  synchronization to account for clock drift between
-  micro-controllers. No special code is needed to enable multiple
-  micro-controllers - it just requires a few extra lines in the config
-  file.
+* <b>Klipper는 다수개의 마이크로 컨트롤러가 있는 프린터를 지원합니다.</b> 예를 들어, 하나의 마이크로 컨트롤러는 압출기를 제어하는데 사용되고 다른 하나는 프린터의 히터를 제어하고 세 번째는 나머지 프린터를 제어하는데 사용할 수 있습니다. Klipper 호스트 소프트웨어는 마이크로 컨트롤러간의 클럭 드리프트를 계산하기 위해 클록 동기화를 구현합니다.여러 마이크로 컨트롤러를 활성화하는데 특별한 코드는 필요하지 않습니다. 구성 파일에 몇 줄만 추가하면 됩니다.
 
-* Configuration via simple config file. There's no need to reflash the
-  micro-controller to change a setting. All of Klipper's configuration
-  is stored in a standard config file which can be easily edited. This
-  makes it easier to setup and maintain the hardware.
+* <b>간단한 config 파일을 통한 구성.</b> 설정을 변경하기 위해 마이크로 컨트롤러를 다시 펌웨어 업데이트할 필요가 없습니다. Klipper의 모든 구성은 쉽게 편집할 수 있는 표준 config 파일에 저장됩니다. 이렇게 하면 하드웨어를 더 쉽게 설정하고 유지 관리할 수 있습니다.
 
-* Klipper supports "Smooth Pressure Advance" - a mechanism to account
-  for the effects of pressure within an extruder. This reduces
-  extruder "ooze" and improves the quality of print corners. Klipper's
-  implementation does not introduce instantaneous extruder speed
-  changes, which improves overall stability and robustness.
+* <b>Klipper는 압출기 내 압력의 영향을 설명하는 메커니즘인 "Smooth Pressure Advance"를 지원합니다.</b> 이것은 압출기의 "얼룩"을 줄이고 인쇄 모서리의 품질을 향상시킵니다. Klipper의 구현은 전반적인 안정성과 견고성을 향상시키는 즉각적인 압출기 속도 변경을 도입하지 않습니다.
 
-* Klipper supports "Input Shaping" to reduce the impact of vibrations
-  on print quality. This can reduce or eliminate "ringing" (also known
-  as "ghosting", "echoing", or "rippling") in prints. It may also
-  allow one to obtain faster printing speeds while still maintaining
-  high print quality.
+* <b>Klipper는 인쇄 품질에 대한 진동의 영향을 줄이기 위해 "Input Shaping"을 지원합니다.</b> 이렇게 하면 인쇄물에서 "진동형 무늬" ("고스팅", "에코잉" 또는 "리플링"이라고도 함)을 줄이거나 제거할 수 있습니다. 또한 높은 인쇄 품질을 유지하면서 더 빠른 인쇄 속도를 얻을 수 있습니다.
 
-* Klipper uses an "iterative solver" to calculate precise step times
-  from simple kinematic equations. This makes porting Klipper to new
-  types of robots easier and it keeps timing precise even with complex
-  kinematics (no "line segmentation" is needed).
+* <b>Klipper는 "iterative solver"를 사용하여 간단한 운동 방정식에서 정확한 단계 시간을 계산합니다.</b> 이를 통해 Klipper를 새로운 유형의 로봇에 쉽게 이식할 수 있으며 복잡한 운동학에서도 정확한 타이밍을 유지할 수 있습니다("Line segmentation"이 필요하지 않음).
+ 
+* <b>이식 가능한 코드.</b> Klipper는 ARM, AVR 및 PRU 기반 마이크로 컨트롤러에서 작동합니다. 기존 "reprap" 스타일 프린터는 하드웨어 수정 없이 Klipper를 실행할 수 있습니다. Raspberry Pi를 추가하기만 하면 됩니다. Klipper의 내부 코드 레이아웃을 통해 다른 마이크로 컨트롤러 아키텍처도 쉽게 지원할 수 있습니다.
 
-* Portable code. Klipper works on ARM, AVR, and PRU based
-  micro-controllers. Existing "reprap" style printers can run Klipper
-  without hardware modification - just add a Raspberry Pi. Klipper's
-  internal code layout makes it easier to support other
-  micro-controller architectures as well.
+* <b>더 간단한 코드.</b> Klipper는 대부분의 코드에 대해 매우 높은 수준의 언어(Python)를 사용합니다. 운동학 알고리즘, gcode 해석, 가열 및 온도센서 알고리즘 등은 모두 Python으로 작성되었습니다. 이를 통해 새로운 기능을 더 쉽게 개발할 수 있습니다.
 
-* Simpler code. Klipper uses a very high level language (Python) for
-  most code. The kinematics algorithms, the G-code parsing, the
-  heating and thermistor algorithms, etc. are all written in Python.
-  This makes it easier to develop new functionality.
+* <b>사용자 정의 가능한 매크로.</b> 새로운 gcode 명령을 프린터 구성 파일에서 정의할 수 있습니다 (코드 변경이 필요하지 않음). 이러한 명령은 프로그래밍할 수 있으므로 프린터 상태에 따라 다른 작업을 생성할 수 있습니다.
 
-* Custom programmable macros. New G-Code commands can be defined in
-  the printer config file (no code changes are necessary). Those
-  commands are programmable - allowing them to produce different
-  actions depending on the state of the printer.
-
-* Builtin API server. In addition to the standard G-Code interface,
-  Klipper supports a rich JSON based application interface. This
-  enables programmers to build external applications with detailed
-  control of the printer.
+* <b>내장 API 서버.</b> 표준 gcode 인터페이스 외에도 Klipper는 풍부한 JSON 기반 애플리케이션 인터페이스를 지원합니다. 이를 통해 프로그래머는 프린터를 세부적으로 제어하여 외부 응용 프로그램을 구축할 수 있습니다.
 
 ## Additional features
 
