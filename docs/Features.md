@@ -26,80 +26,45 @@ Klipper 에는 다음과 같이 몇가지 매력적인 기능이 있습니다:
 
 ## Additional features
 
-Klipper supports many standard 3d printer features:
+Klipper는 다양한 표준 3D 프린터 기능을 지원합니다:
 
-* Works with Octoprint. This allows the printer to be controlled using
-  a regular web-browser. The same Raspberry Pi that runs Klipper can
-  also run Octoprint.
+* <b>Octoprint와 함께 작동합니다.</b> 이를 통해 웹 브라우저를 사용하여 프린터를 제어할 수 있습니다. Raspberry Pi 에서도 Klipper 와 Octoprint를 실행할 수 있습니다.
 
-* Standard G-Code support. Common g-code commands that are produced by
-  typical "slicers" are supported. One may continue to use Slic3r,
-  Cura, etc. with Klipper.
+* <b>표준 gcode 지원.</b> 일반적인 "슬라이서" 에서 생성되는 gcode 명령이 지원됩니다. Slic3r, Cura 등을 Klipper와 함께 계속 사용할 수 있습니다.
 
-* Support for multiple extruders. Extruders with shared heaters and
-  extruders on independent carriages (IDEX) are also supported.
+* <b>멀티 익스트루더를 지원합니다.</b> 히터를 공유하는 익스트루더 방식 및 독립 캐리지 상의 익스트루더(IDEX) 방식도 지원됩니다.
 
-* Support for cartesian, delta, corexy, corexz, rotary delta, polar,
-  and cable winch style printers.
+* <b>다양한 방식의 프린터지 지원.</b> 직교, 델타, corexy, corexz, 회전 델타, 극성 및 케이블 윈치 스타일 프린터를 지원합니다.
 
-* Automatic bed leveling support. Klipper can be configured for basic
-  bed tilt detection or full mesh bed leveling. If the bed uses
-  multiple Z steppers then Klipper can also level by independently
-  manipulating the Z steppers. Most Z height probes are supported,
-  including BL-Touch probes and servo activated probes.
+* <b>오토 베드 레벨링 지원.</b> Klipper는 기본적으로 베드 기울기 감지 또는 전체 메쉬 베드 레벨링을 위해 구성할 수 있습니다. 여러 개의 Z축 스테퍼 모터를 사용하는 경우 Klipper는 각각의 Z축 모터를 독립적으로 조작하여 수평을 맞출 수도 있습니다. BL-Touch 프로브 및 서보 활성화 프로브를 포함하여 대부분의 Z 높이 프로브가 지원됩니다.
 
-* Automatic delta calibration support. The calibration tool can
-  perform basic height calibration as well as an enhanced X and Y
-  dimension calibration. The calibration can be done with a Z height
-  probe or via manual probing.
+* <b>오토 델타 캘리브레이션 지원.</b> 자동으로 델타 프린터의 높이 보정과 향상된 X 및 Y 치수 보정을 수행할 수 있습니다. 보정은 Z 높이 프로브 또는 수동 프로빙을 통해 수행할 수 있습니다.
 
-* Support for common temperature sensors (eg, common thermistors,
-  AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856,
-  MAX31865, BME280, HTU21D, and LM75). Custom thermistors and custom
-  analog temperature sensors can also be configured.
+* <b>공통 온도 센서 지원</b> (예: 공통 서미스터, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D 및 LM75). 맞춤형 서미스터 및 맞춤형 아날로그 온도 센서도 구성할 수 있습니다.
 
-* Basic thermal heater protection enabled by default.
+* <b>온도 안전장치</b> 기본적으로 thermal protection 이 활성화되어 있습니다.
+ 
+* <b>표준 상시팬, 노즐팬 및 온도 제어팬을 지원합니다.</b> 프린터가 유휴 상태일 때 팬을 계속 작동시킬 필요가 없습니다.
 
-* Support for standard fans, nozzle fans, and temperature controlled
-  fans. No need to keep fans running when the printer is idle.
+* <b>TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 및 TMC5160 스테퍼 모터 드라이버의 런타임 구성 지원.</b> AD5206, MCP4451, MCP4728, MCP4018 및 PWM 핀을 통한 기존 스테퍼 드라이버의 전류 제어도 지원합니다.
 
-* Support for run-time configuration of TMC2130, TMC2208/TMC2224,
-  TMC2209, TMC2660, and TMC5160 stepper motor drivers. There is also
-  support for current control of traditional stepper drivers via
-  AD5206, MCP4451, MCP4728, MCP4018, and PWM pins.
+* <b>프린터에 직접 연결된 일반 LCD 디스플레이를 지원합니다.</b> 기본 메뉴도 있습니다. 디스플레이 및 메뉴의 내용은 config 파일을 통해 완전히 사용자가 정의할 수 있습니다.
 
-* Support for common LCD displays attached directly to the printer. A
-  default menu is also available. The contents of the display and menu
-  can be fully customized via the config file.
+* <b>일정한 가속 및 "look-ahead" 지원.</br> 모든 프린터의 이동은 정지 상태에서 점차 가속되었다가 다시 정지 상태로 감속됩니다. 읽어들이는 gcode 는 순서대로 쌓이고 분석됩니다. 같은 방향으로의 이동 할때는 가/감속을 하지 않고 인쇄 시간을 개선하기 위해 최적화됩니다.
 
-* Constant acceleration and "look-ahead" support. All printer moves
-  will gradually accelerate from standstill to cruising speed and then
-  decelerate back to a standstill. The incoming stream of G-Code
-  movement commands are queued and analyzed - the acceleration between
-  movements in a similar direction will be optimized to reduce print
-  stalls and improve overall print time.
+* <b>Klipper는 일반적인 엔드스톱 스위치의 정확도를 향상시킬 수 있는 "스테퍼 위상 엔드스톱" 알고리즘을 구현합니다.</b> 적절히 튜닝하면 첫 레이어 베드 접착력을 향상시킬 수 있습니다.
 
-* Klipper implements a "stepper phase endstop" algorithm that can
-  improve the accuracy of typical endstop switches. When properly
-  tuned it can improve a print's first layer bed adhesion.
+* <b>Input Shaping</b> adxl345 가속도계를 사용한 가속도 측정 및 기록 지원.
 
-* Support for measuring and recording acceleration using an adxl345
-  accelerometer.
+* <b>Smoothed look-ahead</b> 짧은 "지그재그" 이동의 최고 속도 제한을 지원하여 프린터 진동과 소음을 줄입니다. 자세한 내용은 [kinematics](Kinematics.md) 문서를 참조하십시오.
 
-* Support for limiting the top speed of short "zigzag" moves to reduce
-  printer vibration and noise. See the [kinematics](Kinematics.md)
-  document for more information.
+* <b>config samples.</b> 다양한 프린터를 지원하기 위해 sample config 파일을 제공합니다. [config directory](../config/) 디렉토리를 확인하십시오.
 
-* Sample configuration files are available for many common printers.
-  Check the [config directory](../config/) for a list.
-
-To get started with Klipper, read the [installation](Installation.md)
-guide.
+Klipper를 시작하려면 [설치](Installation.md) 가이드를 읽으십시오.
 
 ## Step Benchmarks
 
-Below are the results of stepper performance tests. The numbers shown
-represent total number of steps per second on the micro-controller.
+다음은 스테퍼 모터의 성능 테스트 결과입니다. 표시된 숫자는 마이크로 컨트롤러에서 초당 총 스텝수를 나타냅니다.
 
 | Micro-controller                | Fastest step rate | 3 steppers active |
 | ------------------------------- | ----------------- | ----------------- |
@@ -116,10 +81,4 @@ represent total number of steps per second on the micro-controller.
 | Adafruit Metro M4 (SAMD51)      | 761K              | 692K              |
 | BigTreeTech SKR Pro (STM32F407) | 922K              | 711K              |
 
-On AVR platforms, the highest achievable step rate is with just one
-stepper stepping. On the SAMD21 and STM32F103 the highest step rate is
-with two simultaneous steppers stepping. On the SAM3X8E, SAM4S8C,
-SAM4E8E, LPC176x, and PRU the highest step rate is with three
-simultaneous steppers. On the SAMD51 and STM32F4 the highest step rate
-is with four simultaneous steppers. (Further details on the benchmarks
-are available in the [Benchmarks document](Benchmarks.md).)
+AVR 플랫폼에서 가능한 step rate은 단 하나의 스태퍼 모터의 제어입니다. SAMD21 및 STM32F103에서는 동시에 두개의 스태퍼 모터를 제어할 수 있습니다. SAM3X8E, SAM4S8C, SAM4E8E, LPC176x 및 PRU에서는 동시에 3개가 가능합니다. SAMD51 및 STM32F4에서의 동시 사용 스태퍼 모터는 4개의 입니다. (자세한 내용은 [Benchmarks document](Benchmarks.md).)에서 확인할 수 있습니다.)
