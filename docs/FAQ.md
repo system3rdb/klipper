@@ -1,6 +1,6 @@
 # Frequently asked questions
 
-1. [How can I donate to the project?](#how-can-i-donate-to-the-project)
+1. [어떻게 프로젝트에 기부할수 있나요?](#어떻게-프로젝트에-기부할수-있나요)
 2. [How do I calculate the rotation_distance config parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
 3. [Where's my serial port?](#wheres-my-serial-port)
 4. [When the micro-controller restarts the device changes to /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
@@ -25,9 +25,9 @@
 23. [How do I upgrade to the latest software?](#how-do-i-upgrade-to-the-latest-software)
 24. [How do I uninstall klipper?](#how-do-i-uninstall-klipper)
 
-## How can I donate to the project?
+## 어떻게 프로젝트에 기부할수 있나요?
 
-Thanks. Kevin has a Patreon page at:
+감사합니다. Kevin의 Patreon 페이지는 다음과 같습니다.:
 [https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)
 
 ## How do I calculate the rotation_distance config parameter?
