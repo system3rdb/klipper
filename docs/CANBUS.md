@@ -45,11 +45,6 @@ CAN 버스에 있는 모든 장치의 회로도를 확인하여 버스에 2개�
 
 ## 새로운 micro-controllers의 canbus_uuid 찾기
 
-Each micro-controller on the CAN bus is assigned a unique id based on
-the factory chip identifier encoded into each micro-controller. To
-find each micro-controller device id, make sure the hardware is
-powered and wired correctly, and then run:
-
 CAN 버스의 각 마이크로 컨트롤러에는 각 마이크로 컨트롤러에 인코딩된 공장 칩 식별자를 기반으로 고유한 ID가 할당됩니다.
 각 마이크로 컨트롤러 장치 ID를 찾으려면 하드웨어에 전원이 공급 및 배선이 올바르게 연결되었는지 확인한 후 다음을 실행합니다.
 
