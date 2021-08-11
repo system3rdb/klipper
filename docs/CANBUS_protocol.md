@@ -1,13 +1,13 @@
 # CANBUS 프로토콜
 
 이 문서는 Klipper가 [CAN bus](https://en.wikipedia.org/wiki/CAN_bus) 를 통해 통신하는데 사용하는 프로토콜을 설명합니다.
-CAN 버스로 Klipper를 구성하는 방법에 대한 정보는 [CANBUS.md](CANBUS.md)를 참조하십시오.
+CAN bus 로 Klipper를 구성하는 방법에 대한 정보는 [CANBUS.md](CANBUS.md)를 참조하십시오.
 
 ## 마이크로 컨트롤러 ID 할당
 
 Klipper는 8 데이터 바이트와 11비트 CAN bus identifier로 제한되는 CAN 2.0A 표준 크기 CAN bus 패킷만 사용합니다.
-효율적인 통신을 지원하기 위해 각 마이크로 컨트롤러에는 일반 Klipper 명령 및 응답 트래픽에 대해 고유한 1바이트 CAN 버스 노드 ID('canbus_nodeid')가 런타임에 할당됩니다.
-호스트에서 마이크로 컨트롤러로 가는 Klipper 명령 메시지는 `canbus_nodeid * 2 + 256`의 CAN 버스 ID를 사용하는 반면, 마이크로 컨트롤러에서 호스트로 가는 Klipper 응답 메시지는 `canbus_nodeid * 2 + 256 + 1`을 사용합니다.
+효율적인 통신을 지원하기 위해 각 마이크로 컨트롤러에는 일반 Klipper 명령 및 응답 트래픽에 대해 고유한 1바이트 CAN bus 노드 ID('canbus_nodeid')가 런타임에 할당됩니다.
+호스트에서 마이크로 컨트롤러로 가는 Klipper 명령 메시지는 `canbus_nodeid * 2 + 256`의 CAN bus ID를 사용하는 반면, 마이크로 컨트롤러에서 호스트로 가는 Klipper 응답 메시지는 `canbus_nodeid * 2 + 256 + 1`을 사용합니다.
 각 마이크로 컨트롤러에는 ID 할당 중에 사용되는 공장 할당 고유 칩 식별자가 있습니다. 이 식별자는 하나의 CAN 패킷 길이를 초과할 수 있으므로 해시 함수를 사용하여 공장 ID에서 고유한 6바이트 ID(`canbus_uuid`)를 생성합니다.
 
 ## Admin messages
