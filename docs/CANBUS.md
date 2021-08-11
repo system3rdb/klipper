@@ -11,7 +11,7 @@ CAN용으로 컴파일하려면 "make menuconfig"를 실행하고  communication
 
 ## Host Hardware
 
-CAN 버스를 사용하려면, 호스트 어댑터가 필요합니다.
+CAN bus를 사용하려면, 호스트 어댑터가 필요합니다.
 현재까지 두 가지 일반적인 옵션이 있습니다.
 
 1. [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-hat.htm)을 사용하거나, 다른 클론제품을 사용합니다.
@@ -36,12 +36,12 @@ Note : "Raspberry Pi CAN hat"도 마찬가지로 필요합니다.
 
 ## 종단 저항
 
-CAN bus 에는 CANH와 CANL 와이어 사이에 2개의 120옴 저항이 있어야 합니다. 이상적으로는 버스의 각 끝에 하나의 저항이 있습니다.
+CAN bus 에는 CANH와 CANL 와이어 사이에 2개의 120옴 저항이 있어야 합니다. 이상적으로는 각 끝에 하나의 저항이 있습니다.
 
 일부 장치에는 120옴 저항이 내장되어 있습니다.(예: "Waveshare Raspberry Pi CAN 모자"에는 쉽게 제거할 수 없는 저항이 납땜되어 있음).
 일부 장치에는 저항이 전혀 포함되어 있지 않습니다.
 다른 장치에는 저항을 선택하는 메커니즘이 있습니다(일반적으로 "핀 점퍼"로 연결).
-CAN 버스에 있는 모든 장치의 회로도를 확인하여 버스에 2개의 120 Ohm 저항이 있는지 확인하십시오.
+CAN bus에 있는 모든 장치의 회로도를 확인하여 2개의 120 Ohm 저항이 있는지 확인하십시오.
 
 저항이 올바른지 테스트하기 위해 프린터의 전원을 끄고 멀티미터를 사용하여 CANH와 CANL 와이어 사이의 저항을 확인할 수 있습니다. 올바르게 배선된 CAN bus에서 ~60옴이 나와야 합니다.
 
@@ -69,7 +69,7 @@ Found canbus_uuid=11aa22bb33cc
 
 ## Klipper 설정하기
 
-장치와 통신하기 위해 CAN 버스를 사용하도록 Klipper [mcu configuration](Config_Reference.md#mcu)을 업데이트합니다. 예를 들면 다음과 같습니다.
+장치와 통신하기 위해 CAN bus를 사용하도록 Klipper [mcu configuration](Config_Reference.md#mcu)을 업데이트합니다. 예를 들면 다음과 같습니다.
 
 
 ```
