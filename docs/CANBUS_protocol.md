@@ -10,11 +10,6 @@ Klipper는 8 데이터 바이트와 11비트 CAN bus identifier로 제한되는 
 호스트에서 마이크로 컨트롤러로 가는 Klipper 명령 메시지는 `canbus_nodeid * 2 + 256`의 CAN bus ID를 사용하는 반면, 마이크로 컨트롤러에서 호스트로 가는 Klipper 응답 메시지는 `canbus_nodeid * 2 + 256 + 1`을 사용합니다.
 각 마이크로 컨트롤러에는 ID 할당 중에 사용되는 공장 할당 고유 칩 식별자가 있습니다. 이 식별자는 하나의 CAN 패킷 길이를 초과할 수 있으므로 해시 함수를 사용하여 공장 ID에서 고유한 6바이트 ID(`canbus_uuid`)를 생성합니다.
 
-## Admin messages
-
-Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id `0x3f0` and messages sent from micro-controller to host use the CAN bus id `0x3f1`.
-All micro-controllers listen to messages on id `0x3f0`; that id can be thought of as a "broadcast address".
-
 ## 관리자 메시지
 
 관리자 메시지는 ID 할당에 사용됩니다. 호스트에서 마이크로 컨트롤러로 전송된 관리자 메시지는 CAN bus ID '0x3f0'을 사용하고 마이크로 컨트롤러에서 호스트로 전송되는 메시지는 CAN bus ID '0x3f1'을 사용합니다.
