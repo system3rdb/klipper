@@ -1,7 +1,7 @@
 # 구성 확인
 
 이 문서는 Klipper printer.cfg 파일에서 핀 설정을 확인하는 데 도움이 되는 단계 목록을 제공합니다.
-[installation document](Installation.md). 의 단계를 수행한 후 이 단계를 실행하는 것이 좋습니다.
+[installation document](Installation.md) 의 단계를 수행한 후 이 단계를 실행하는 것이 좋습니다.
 
 
 이 가이드를 진행하는 동안 Klipper 구성 파일을 변경해야 할 수도 있습니다.
