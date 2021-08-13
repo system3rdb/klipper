@@ -1,78 +1,56 @@
-# Configuration reference
+# 구성 참조
 
-This document is a reference for options available in the Klipper
-config file.
+이 문서는 Klipper 구성 파일에서 사용할 수 있는 옵션에 대한 참조입니다.
 
-The descriptions in this document are formatted so that it is possible
-to cut-and-paste them into a printer config file. See the
-[installation document](Installation.md) for information on setting up
-Klipper and choosing an initial config file.
+이 문서의 설명은 프린터 구성 파일에 잘라내어 붙여넣을 수 있도록 형식이 지정되어 있습니다.
+Klipper 설정 및 초기 구성 파일 선택에 대한 정보는 [installation document](Installation.md)를 참조하십시오.
 
-## Micro-controller configuration
+## 마이크로 컨트롤러 구성
 
-### Format of micro-controller pin names
+### 마이크로 컨트롤러 핀 이름 형식
 
-Many config options require the name of a micro-controller pin.
-Klipper uses the hardware names for these pins - for example `PA4`.
+많은 구성 옵션에는 마이크로 컨트롤러 핀의 이름이 필요합니다.
+Klipper는 이러한 핀에 대한 하드웨어 이름을 사용합니다(예: 'PA4').
 
-Pin names may be preceded by `!` to indicate that a reverse polarity
-should be used (eg, trigger on low instead of high).
+핀 이름 앞에 '!'가 붙으면 극성이 반대로 사용되어야 함을 나타냅니다(예: 높음 대신 낮음에서 작동).
 
-Input pins may be preceded by `^` to indicate that a hardware pull-up
-resistor should be enabled for the pin. If the micro-controller
-supports pull-down resistors then an input pin may alternatively be
-preceded by `~`.
+하드웨어 풀업 저항이 핀에 대해 활성화되어야 함을 나타내기 위해 입력 핀 앞에 `^`이 올 수 있습니다.
+마이크로 컨트롤러가 풀다운 저항을 지원하는 경우 입력 핀 앞에 `~`가 대신 올 수 있습니다.
 
-Note, some config sections may "create" additional pins. Where this
-occurs, the config section defining the pins must be listed in the
-config file before any sections using those pins.
+일부 구성 섹션은 추가 핀을 "생성"할 수 있습니다. 이러한 상황이 발생하면 핀을 정의하는 구성 섹션이 해당 핀을 사용하는 섹션보다 먼저 구성 파일에 나열되어야 합니다.
 
 ### [mcu]
 
-Configuration of the primary micro-controller.
+기본 마이크로 컨트롤러의 구성.
 
 ```
 [mcu]
 serial:
-#   The serial port to connect to the MCU. If unsure (or if it
-#   changes) see the "Where's my serial port?" section of the FAQ.
-#   This parameter must be provided when using a serial port.
+#   MCU에 연결하기 위한 시리얼 포트입니다. 확실하지 않은 경우(또는 변경되는 경우) FAQ의 "시리얼 포트는 어디에 있습니까?"를 참조하십시오.
+#   이 매개변수는 시리얼 포트를 사용할 때 제공되어야 합니다.
 #baud: 250000
-#   The baud rate to use. The default is 250000.
+#   사용할 전송 속도. 기본값은 250000입니다.
 #canbus_uuid:
-#   If using a device connected to a CAN bus then this sets the unique
-#   chip identifier to connect to. This value must be provided when using
-#   CAN bus for communication.
+#   CAN bus에 연결된 장치를 사용하는 경우 연결할 고유 칩 식별자를 설정합니다. 이 값은 통신을 위해 CAN bus를 사용할 때 제공되어야 합니다.
 #canbus_interface:
-#   If using a device connected to a CAN bus then this sets the CAN
-#   network interface to use. The default is 'can0'.
+#   CAN bus에 연결된 장치를 사용하는 경우 사용할 CAN 네트워크 인터페이스를 설정합니다. 기본값은 'can0'입니다.
 #restart_method:
-#   This controls the mechanism the host will use to reset the
-#   micro-controller. The choices are 'arduino', 'cheetah', 'rpi_usb',
-#   and 'command'. The 'arduino' method (toggle DTR) is common on
-#   Arduino boards and clones. The 'cheetah' method is a special
-#   method needed for some Fysetc Cheetah boards. The 'rpi_usb' method
-#   is useful on Raspberry Pi boards with micro-controllers powered
-#   over USB - it briefly disables power to all USB ports to
-#   accomplish a micro-controller reset. The 'command' method involves
-#   sending a Klipper command to the micro-controller so that it can
-#   reset itself. The default is 'arduino' if the micro-controller
-#   communicates over a serial port, 'command' otherwise.
+#   호스트가 마이크로 컨트롤러를 재설정하는 데 사용할 메커니즘을 제어합니다. 선택 사항은 'arduino', 'cheetah', 'rpi_usb' 및 'command'입니다.
+#   'arduino' 방법(toggle DTR)은 Arduino 보드 및 클론에서 일반적입니다.
+#   'cheetah' 방식은 일부 Fysetc 치타 보드에 필요한 특수 방식입니다.
+#   'rpi_usb' 방법은 USB를 통해 전원이 공급되는 마이크로 컨트롤러가 있는 Raspberry Pi 보드에서 유용합니다. - 마이크로 컨트롤러 재설정을 수행하기 위해 모든 USB 포트에 대한 전원을 잠시 비활성화합니다.
+#   'command' 방식은 마이크로 컨트롤러가 자체적으로 재설정할 수 있도록 Klipper 명령을 보내는 것을 포함합니다.
+#   마이크로 컨트롤러가 시리얼 포트를 통해 통신하는 경우 기본값은 'arduino'이고 그렇지 않으면 'command'입니다.
 ```
 
 ### [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections
-with an "mcu" prefix). Additional micro-controllers introduce
-additional pins that may be configured as heaters, steppers, fans,
-etc.. For example, if an "[mcu extra_mcu]" section is introduced, then
-pins such as "extra_mcu:ar9" may then be used elsewhere in the config
-(where "ar9" is a hardware pin name or alias name on the given mcu).
+추가 마이크로 컨트롤러("mcu" 접두사로 섹션을 원하는 수만큼 정의할 수 있음). 추가 마이크로 컨트롤러는 히터, 스테퍼, 팬 등으로 구성할 수 있는 추가 핀을 도입합니다.
+예를 들어 "[mcu extra_mcu]" 섹션이 있으면 "extra_mcu:ar9"와 같은 핀이 구성의 다른 곳에서 사용될 수 있습니다(여기서 "ar9"는 지정된 mcu의 하드웨어 핀 이름 또는 대체 이름임).
 
 ```
 [mcu my_extra_mcu]
-# See the "mcu" section for configuration parameters.
-```
+# 구성 매개변수는 "mcu" 섹션을 참조하십시오.
 
 ## Common kinematic settings
 
