@@ -10,8 +10,7 @@
 
 ## 온도 확인
 
-온도가 제대로 보고되고 있는지 확인하는 것으로 시작하십시오.
-Octoprint 온도 탭으로 이동합니다.
+우선 온도가 제대로 보고되고 있는지 확인하세요. Octoprint 온도 탭으로 이동합니다.
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
