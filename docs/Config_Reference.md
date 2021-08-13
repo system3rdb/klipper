@@ -35,10 +35,12 @@ serial:
 #canbus_interface:
 #   CAN bus에 연결된 장치를 사용하는 경우 사용할 CAN 네트워크 인터페이스를 설정합니다. 기본값은 'can0'입니다.
 #restart_method:
-#   호스트가 마이크로 컨트롤러를 재설정하는 데 사용할 메커니즘을 제어합니다. 선택 사항은 'arduino', 'cheetah', 'rpi_usb' 및 'command'입니다.
+#   호스트가 마이크로 컨트롤러를 재설정하는 데 사용할 메커니즘을 제어합니다.
+#   선택 사항은 'arduino', 'cheetah', 'rpi_usb' 및 'command'입니다.
 #   'arduino' 방법(toggle DTR)은 Arduino 보드 및 클론에서 일반적입니다.
 #   'cheetah' 방식은 일부 Fysetc 치타 보드에 필요한 특수 방식입니다.
-#   'rpi_usb' 방법은 USB를 통해 전원이 공급되는 마이크로 컨트롤러가 있는 Raspberry Pi 보드에서 유용합니다. - 마이크로 컨트롤러 재설정을 수행하기 위해 모든 USB 포트에 대한 전원을 잠시 비활성화합니다.
+#   'rpi_usb' 방법은 USB를 통해 전원이 공급되는 마이크로 컨트롤러가 있는 Raspberry Pi 보드에서 유용합니다. 
+#   - 마이크로 컨트롤러 재설정을 수행하기 위해 모든 USB 포트에 대한 전원을 잠시 비활성화합니다.
 #   'command' 방식은 마이크로 컨트롤러가 자체적으로 재설정할 수 있도록 Klipper 명령을 보내는 것을 포함합니다.
 #   마이크로 컨트롤러가 시리얼 포트를 통해 통신하는 경우 기본값은 'arduino'이고 그렇지 않으면 'command'입니다.
 ```
