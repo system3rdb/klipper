@@ -23,5 +23,5 @@
 서명자: 내 이름 <myemail@example.org>
 ```
 
-각 commit에 "Signed-off-by" 라인이 있는 것이 중요합니다. 이는 [개발자 인증서](developer-certificate-of-origin)에 동의함을 증명합니다.
+각 commit에 "서명자" 라인이 있는 것이 중요합니다. 이는 [개발자 인증서](developer-certificate-of-origin)에 동의함을 증명합니다.
 실명을 포함해야 하며(가명이나 익명의 기여가 없음) 현재 이메일 주소를 포함해야 합니다.
