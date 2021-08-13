@@ -53,6 +53,7 @@ serial:
 ```
 [mcu my_extra_mcu]
 # 구성 매개변수는 "mcu" 섹션을 참조하십시오.
+```
 
 ## Common kinematic settings
 
