@@ -49,7 +49,7 @@ Octoprint 온도 탭으로 이동하여  "Tool"의 온도에 50을 입력합니�
 모든 프린터 축을 수동으로 이동하여 어느 것도 endstop과 접촉하지 않도록 합니다.
 Octoprint 터미널 탭을 통해 QUERY_ENDSTOPS 명령을 보냅니다. 구성된 모든 endstop의 현재 상태를 응답해야 하며 모두 "open" 상태이어야 합니다.
 각 endstop에 대해 endstop을 수동으로 누른 상태에서 QUERY_ENDSTOPS 명령을 다시 실행하십시오.
-QUERY_ENDSTOPS 명령은 끝점을 "TRIGGERED"로 보고해야 합니다.
+QUERY_ENDSTOPS 명령은 endstop을 "TRIGGERED"로 보고해야 합니다.
 
 endstop이 거꾸로 표시되면(눌렀을 때 "open"으로 나오고 그 반대의 경우도 마찬가지임) "!"를 핀 정의에 추가하거나(예: "endstop_pin: ^!ar3") "!" 이미 있는 경우, 제거 합니다.
 
